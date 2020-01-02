@@ -1,7 +1,8 @@
 import React,{ Component } from 'react';
 import './App.css';
 import './../third-party-styles/bootstrap.min.css';
-import Header from './Header/Header.js'
+import Header from './Header/Header'
+import Appoitment from './Appointment/Appoimment'
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,9 @@ class App extends Component {
         <Header
           titulo={title}
         />
+        <div className="col-md10 mx-auto">
+          <Appoitment/>
+        </div>
 
       </div>
       
