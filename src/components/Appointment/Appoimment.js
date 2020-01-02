@@ -2,7 +2,27 @@ import React, { Component } from 'react';
 class Appoimment extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = { 
+            appoimment:{
+                nombre:'',
+                dni:'',
+                fecha:'',
+                hora:'',
+                observaciones:''
+            }
+        
+        
+        };
+    }
+
+    handleChange=(e)=>{
+        this.setState({
+            appoimment:{
+                ...this.state.appoimment,
+                [e.target.name]:e.target.value
+            }
+        })
+
     }
     render() {
         return (
@@ -23,7 +43,8 @@ class Appoimment extends Component {
                                     type="text"
                                     className="form-control"
                                     placeholder="Nombre Paciente"
-                                    name="Nombre"
+                                    name="nombre"
+                                    onChange={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -41,6 +62,7 @@ class Appoimment extends Component {
                                     className="form-control"
                                     placeholder="Introduce tu Numero de Identificación Nacional"
                                     name="dni"
+                                    onChange={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -58,6 +80,7 @@ class Appoimment extends Component {
                                     className="form-control"
                                     placeholder="Introduce la fecha"
                                     name="fecha"
+                                    onChange={this.handleChange}
                                 />
                             </div>
 
@@ -72,6 +95,7 @@ class Appoimment extends Component {
                                     className="form-control"
                                     placeholder="Introduce la hora"
                                     name="hora"
+                                    onChange={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -88,6 +112,7 @@ class Appoimment extends Component {
                                     className="form-control"
                                     placeholder="Introduce un resumen de la cita"
                                     name="observaciones"
+                                    onChange={this.handleChange}
                                 >
                                 </textarea>
                                 
