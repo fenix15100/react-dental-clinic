@@ -9,9 +9,8 @@ class Appoimment extends Component {
                 fecha:'',
                 hora:'',
                 observaciones:''
-            }
-        
-        
+            },
+            error:false
         };
     }
 
@@ -21,7 +20,25 @@ class Appoimment extends Component {
                 ...this.state.appoimment,
                 [e.target.name]:e.target.value
             }
-        })
+        });
+    }
+
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        
+        const keys=Object.keys(this.state.appoimment);
+        keys.forEach(key=>{
+            if(this.state.appoimment[key]===''){
+                this.setState({
+                    error:true
+                });    
+            }else{
+                this.setState({
+                    error:false
+                }); 
+            }
+            
+        });
 
     }
     render() {
@@ -31,7 +48,7 @@ class Appoimment extends Component {
                     <h2 className=" card-title tex-center mb-5">
                         Llena el formulario para crear una nueva cita
                     </h2>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         {/*Comienzo linea de  Formulario*/}
                         <div className="form-group row">
                             <label htmlFor="" className="col-sm4 col-lg-2 col-form-label">
