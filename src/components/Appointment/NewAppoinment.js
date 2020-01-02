@@ -11,7 +11,7 @@ const stateInit = {
     },
     error:false
 };
-class Appoimment extends Component {
+class NewAppoinment extends Component {
     constructor(props) {
         super(props);
         this.state = {...stateInit};
@@ -164,4 +164,4 @@ class Appoimment extends Component {
     }
 }
 
-export default Appoimment;
+export default NewAppoinment;
