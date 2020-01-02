@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 
+const stateInit = { 
+    appoimment:{
+        nombre:'',
+        dni:'',
+        fecha:'',
+        hora:'',
+        observaciones:''
+    },
+    error:false
+};
 class Appoimment extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            appoimment:{
-                nombre:'',
-                dni:'',
-                fecha:'',
-                hora:'',
-                observaciones:''
-            },
-            error:false
-        };
+        this.state = {...stateInit};
     }
 
     handleChange=(e)=>{
@@ -38,15 +39,10 @@ class Appoimment extends Component {
             if(!this.state.error){
                 const obj={...this.state.appoimment};
                 obj.id=uuid();
-                this.props.createAppoitment(obj);
-                
-            }     
-        });
-
-
-        
-        
-        
+                this.setState({...stateInit})
+                this.props.createAppoitment(obj);    
+            }        
+        });   
     }
     render() {
         const {error}=this.state;
@@ -75,6 +71,7 @@ class Appoimment extends Component {
                                     placeholder="Nombre Paciente"
                                     name="nombre"
                                     onChange={this.handleChange}
+                                    value={this.state.appoimment.nombre}
                                 />
                             </div>
                         </div>
@@ -93,6 +90,7 @@ class Appoimment extends Component {
                                     placeholder="Introduce tu Numero de Identificación Nacional"
                                     name="dni"
                                     onChange={this.handleChange}
+                                    value={this.state.appoimment.dni}
                                 />
                             </div>
                         </div>
@@ -111,6 +109,7 @@ class Appoimment extends Component {
                                     placeholder="Introduce la fecha"
                                     name="fecha"
                                     onChange={this.handleChange}
+                                    value={this.state.appoimment.fecha}
                                 />
                             </div>
 
@@ -126,6 +125,7 @@ class Appoimment extends Component {
                                     placeholder="Introduce la hora"
                                     name="hora"
                                     onChange={this.handleChange}
+                                    value={this.state.appoimment.hora}
                                 />
                             </div>
                         </div>
@@ -143,6 +143,7 @@ class Appoimment extends Component {
                                     placeholder="Introduce un resumen de la cita"
                                     name="observaciones"
                                     onChange={this.handleChange}
+                                    value={this.state.appoimment.observaciones}
                                 >
                                 </textarea>
                                 
