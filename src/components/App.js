@@ -7,8 +7,18 @@ import Appoitment from './Appointment/Appoimment'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {  };
+    this.state = { 
+      appoimments:[]
+     };
   }
+
+  createAppoitment=(appoitment)=>{
+    const appoi = [...this.state.appoimments,appoitment];
+    this.setState({
+      appoimments:appoi
+    });
+  }
+
   render() {
     const title = 'Administración de citas Clinica Dental';
     return (
@@ -17,7 +27,9 @@ class App extends Component {
           titulo={title}
         />
         <div className="col-md10 mx-auto">
-          <Appoitment/>
+          <Appoitment
+            createAppoitment={this.createAppoitment}
+          />
         </div>
 
       </div>

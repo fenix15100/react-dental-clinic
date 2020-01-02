@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
+
 class Appoimment extends Component {
     constructor(props) {
         super(props);
@@ -25,29 +27,40 @@ class Appoimment extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        
-        const keys=Object.keys(this.state.appoimment);
-        keys.forEach(key=>{
-            if(this.state.appoimment[key]===''){
-                this.setState({
-                    error:true
-                });    
-            }else{
-                this.setState({
-                    error:false
-                }); 
-            }
+        const {nombre,dni,fecha,hora,observaciones}=this.state.appoimment;
+        let err=false;
+        if(nombre===''||dni===''||fecha===''||hora===''||observaciones===''){err =true};
             
+            
+        this.setState({
+            error:err
+        },()=>{
+            if(!this.state.error){
+                const obj={...this.state.appoimment};
+                obj.id=uuid();
+                this.props.createAppoitment(obj);
+                
+            }     
         });
 
+
+        
+        
+        
     }
     render() {
+        const {error}=this.state;
         return (
             <div className="card mt-5 py-5">
                 <div className="card-body">
                     <h2 className=" card-title tex-center mb-5">
                         Llena el formulario para crear una nueva cita
                     </h2>
+                    {error ? 
+                        <div className="alert alert-danger mt-2 mb-5 text-center">
+                                Todos los campos son obligatorios
+                        </div>
+                    :null}
                     <form onSubmit={this.handleSubmit}>
                         {/*Comienzo linea de  Formulario*/}
                         <div className="form-group row">
