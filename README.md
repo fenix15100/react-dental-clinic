@@ -1,3 +1,4 @@
+[![Heroku](https://heroku-badge.herokuapp.com/?app=react-dental-clinic)]
 
 Small application developed in React, which "allows" to manage the appointments of a dental clinic, Class components, Stateless Components, Bootstrap,LifeCycleMethods and LocalStorage are used.
 This app belongs to my humble Front-End development portfolio.
