@@ -13,6 +13,21 @@ class App extends Component {
      };
   }
 
+  componentDidMount(){
+    const data = localStorage.getItem('appoimments');
+    if(data){
+      this.setState({
+        appoimments:JSON.parse(data)
+      })
+    }
+
+  }
+
+  componentDidUpdate(){
+    const data =[...this.state.appoimments];
+    localStorage.setItem('appoimments',JSON.stringify(data));
+  }
+  
   createAppoitment=(appoitment)=>{
     const appoi = [...this.state.appoimments,appoitment];
     this.setState({
@@ -23,7 +38,7 @@ class App extends Component {
   destroyAppoiment=(id)=>{
     const actualappoiments = [...this.state.appoimments];
     const filteredappoiments = actualappoiments.filter((obj)=>obj.id!==id)
-    
+
     this.setState({
       appoimments:filteredappoiments
     })
