@@ -1,6 +1,4 @@
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/343f88b8-51a3-4295-babb-cd7a7724abfd/deploy-status)](https://app.netlify.com/sites/adoring-banach-53fe13/deploys)
-
 Small application developed in React, which "allows" to manage the appointments of a dental clinic, Class components, Stateless Components, Bootstrap,LifeCycleMethods and LocalStorage are used.
 This app belongs to my humble Front-End development portfolio.
 This is the first portfolio project and is very simple.
