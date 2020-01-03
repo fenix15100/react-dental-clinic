@@ -1,13 +1,12 @@
 import React from 'react';
 
-const Header = (props) => {
+const Header = ({titulo}) => {
     return (
         <header>
             <h1 className="text-center">
-                {props.titulo}
+                {titulo}
             </h1>
-        </header>
-        
+        </header>     
     );
 }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Appoinment from './Appoinment'
 
-const ListAppoinment = (props) => {
-    const listappoi =[...props.appoimments];
+const ListAppoinment = ({appoimments,destroyAppoiment}) => {
+    const listappoi =[...appoimments];
     return (
         <div className="card mt-2 py-5">
             <div className="card-body">
@@ -14,7 +14,7 @@ const ListAppoinment = (props) => {
                             <Appoinment
                                 key={value.id}
                                 appoinment={value}
-                                destroyAppoiment={props.destroyAppoiment}
+                                destroyAppoiment={destroyAppoiment}
                             />
                     ))} 
                 </div>
