@@ -20,6 +20,16 @@ class App extends Component {
     });
   }
 
+  destroyAppoiment=(id)=>{
+    const actualappoiments = [...this.state.appoimments];
+    const filteredappoiments = actualappoiments.filter((obj)=>obj.id!==id)
+    
+    this.setState({
+      appoimments:filteredappoiments
+    })
+  }
+
+
   render() {
     const title = 'Administración de citas Clinica Dental';
     return (
@@ -36,6 +46,7 @@ class App extends Component {
         <div className="mt-5 col-md10 mx-auto">
           <ListAppoinment
             appoimments={this.state.appoimments}
+            destroyAppoiment={this.destroyAppoiment}
           />
         </div>
 
