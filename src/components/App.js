@@ -25,7 +25,9 @@ class App extends Component {
 
   componentDidUpdate(){
     const data =[...this.state.appoimments];
-    localStorage.setItem('appoimments',JSON.stringify(data));
+    localStorage.setItem('appoimments',
+                          JSON.stringify(data)
+                        );
   }
   
   createAppoitment=(appoitment)=>{
